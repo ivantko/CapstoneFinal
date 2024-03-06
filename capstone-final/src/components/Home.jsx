@@ -1,4 +1,4 @@
-import home_cyber from "../assets/cyberhome.jpg";
+import home_cyber from "../assets/bulwarkhome.png";
 
 function Home() {
     return (
