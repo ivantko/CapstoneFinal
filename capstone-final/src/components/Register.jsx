@@ -1,12 +1,15 @@
+import { useState } from "react";
+
 function Register () {
+        const [userInfo, setUserInfo] = useState({
+             username: "", password: "", email: "", first_name: "", last_name: "" });
 
     const eventHandler = (event) => {
-        event.preventDefault()
-        console.log('in eventHandler')
+        event.preventDefault();
+        console.log('in eventHandler', userInfo.username);
 
-    }
+    };
 
-    // const handleSubmit = (e) => { e.preventDefault();}
  
     return (
         <div>
