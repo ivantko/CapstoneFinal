@@ -15,25 +15,22 @@ function Register () {
         <div>
             <h2>Register</h2>
             <form onSubmit={eventHandler}>
-                <label>
-                    Username
-                <input type="text" placeholder="Username" />
+                <label htmlFor="username">Username
+                <input id="username" type="text" placeholder="Username" />
                 </label>
-                <label htmlFor="password">Password</label>
-                <input name="password" type="password"
-                placeholder="password" />
-                <label>
-                    Email
-                <input type="text" placeholder="Email" />
+                <label htmlFor="password">Password
+                <input id="password" name="password" type="password" placeholder="Password" />
                 </label>
-                <label htmlFor="first_name">First Name</label>
-                <input name="first_name" type="text"
-                placeholder="first_name" />
-                <label>
-                    Last Name
-                <input type="text" placeholder="last_name" />
+                <label htmlFor="email">Email
+                <input id="email" type="text" placeholder="Email" />
                 </label>
-                <button>Submit</button>
+                <label htmlFor="first_name">First Name
+                <input id="first_name" name="first_name" type="text" placeholder="First Name" />
+                </label>
+                <label htmlFor="last_name">Last Name
+                <input id="last_name" type="text" placeholder="Last Name" />
+                </label>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
