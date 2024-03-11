@@ -1,11 +1,21 @@
 import { useState } from "react";
+//api
+import { useRegisterMutation } from "../redux/api";
 
 function Register () {
-        const [userInfo, setUserInfo] = useState({
-             username: "", password: "", email: "", first_name: "", last_name: "" });
+    const [userInfo, setUserInfo] = useState({
+             username: "", 
+             password: "", 
+             email: "", 
+             first_name: "", 
+             last_name: "" 
+            });
+    
+    const [register] = useRegisterMutation();
 
     const eventHandler = (event) => {
         event.preventDefault();
+        register()
         console.log('in eventHandler', `USERINFO${userInfo.username}`);
 
     };
@@ -14,9 +24,9 @@ function Register () {
         console.log(JSON.stringify(userInfo));
         setUserInfo({...userInfo, [e.target.name]: e.target.value });
     };
+ 
 
-// onChange={setUserInfo(e.target.value)}    
-return (
+    return (
     <div>
         <h2>Register</h2>
         <form onSubmit={eventHandler}>
@@ -44,7 +54,7 @@ return (
         </form>
     </div>
 );
-
+   
 }
 
 export default Register;
