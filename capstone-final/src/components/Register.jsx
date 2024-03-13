@@ -2,6 +2,8 @@ import { useState } from "react";
 //api
 import { useRegisterMutation } from "../redux/api";
 
+
+//will need to change the parameters to match fakeapi ones for testing
 function Register () {
     const [userInfo, setUserInfo] = useState({
              username: "", 
@@ -10,18 +12,20 @@ function Register () {
              first_name: "", 
              last_name: "" 
             });
-    
+    const [error, setError] = useState(null);
     const [register] = useRegisterMutation();
 
-    const eventHandler = (event) => {
+    const eventHandler = async (event) => {
         event.preventDefault();
-        register()
-        console.log('in eventHandler', `USERINFO${userInfo.username}`);
+        const{data, error} = await register(userInfo);
+        //data.token --> has token value
+        //error.data.message --> error message
+        console.log(`error ${JSON.stringify(error.data)}`);
 
     };
 
     const onUserInput = (e) => {
-        console.log(JSON.stringify(userInfo));
+        // console.log(JSON.stringify(userInfo));
         setUserInfo({...userInfo, [e.target.name]: e.target.value });
     };
  
@@ -29,6 +33,7 @@ function Register () {
     return (
     <div>
         <h2>Register</h2>
+        {/* error message  */}
         <form onSubmit={eventHandler}>
             <label>
                 Username
