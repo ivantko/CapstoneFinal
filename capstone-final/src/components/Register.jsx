@@ -71,7 +71,7 @@ function Register (props) {
             <button type="submit">Submit</button>
         </form>
     </div>
-);
+    );
    
 }
 
