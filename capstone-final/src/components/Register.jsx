@@ -12,20 +12,29 @@ function Register () {
              first_name: "", 
              last_name: "" 
             });
-    const [error, setError] = useState(null);
+    const [errorMsg, setError] = useState(null);
     const [register] = useRegisterMutation();
 
     const eventHandler = async (event) => {
         event.preventDefault();
         const{data, error} = await register(userInfo);
-        //data.token --> has token value
+   
+        if(error){
         //error.data.message --> error message
-        console.log(`error ${JSON.stringify(error.data)}`);
-
+            setError(error.data.message)
+            console.log(`error ${JSON.stringify(error.data.message)}`);
+        } else {
+             //data.id --> has id value    
+            console.log(`data ${JSON.stringify(data.id)}`);
+        }
     };
 
     const onUserInput = (e) => {
-        // console.log(JSON.stringify(userInfo));
+        if(errorMsg){
+            setError(null);
+        }
+
+
         setUserInfo({...userInfo, [e.target.name]: e.target.value });
     };
  
@@ -34,6 +43,7 @@ function Register () {
     <div>
         <h2>Register</h2>
         {/* error message  */}
+        {errorMsg ? <p>{errorMsg}</p> : <span />}
         <form onSubmit={eventHandler}>
             <label>
                 Username
