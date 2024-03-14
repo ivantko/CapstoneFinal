@@ -9,12 +9,13 @@ import { useState } from 'react';
 function App() {
   const [id, setid] = useState(null);
   
+  console.log('id', id)
   return (
         <div>
           <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />  
+            <Route path="/register" element={<Register setid={setid}/>} />  
           </Routes>
           </BrowserRouter>
         </div>

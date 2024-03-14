@@ -27,6 +27,7 @@ function Register (props) {
             console.log(`error ${JSON.stringify(error.data.message)}`);
         } else {
              //data.id --> has id value    
+            props.setid(data.id)
             console.log(`data ${JSON.stringify(data.id)}`);
         }
     };
