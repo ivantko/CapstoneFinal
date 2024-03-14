@@ -4,7 +4,7 @@ import { useRegisterMutation } from "../redux/api";
 
 
 //will need to change the parameters to match fakeapi ones for testing
-function Register () {
+function Register (props) {
     const [userInfo, setUserInfo] = useState({
              username: "", 
              password: "", 
@@ -14,6 +14,8 @@ function Register () {
             });
     const [errorMsg, setError] = useState(null);
     const [register] = useRegisterMutation();
+
+    console.log(props);
 
     const eventHandler = async (event) => {
         event.preventDefault();
