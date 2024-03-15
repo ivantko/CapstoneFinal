@@ -9,22 +9,20 @@ function Login (props) {
     const [errorMsg, setError] = useState(null);
     const [login] = useLoginMutation();
     
+  
 
     const eventHandler = async (event) => {
         event.preventDefault();
         const{data, error} = await login(userInfo);
         
-        console.log('data', data);
-        console.log('error', error);
-
         if(error){
         // error.data.error
-        // setError(error.data.message)
-            console.log(`error ${JSON.stringify(error.data)}`);
+        setError(error.data)
+            console.log(`error`, error);
         } else {
         // data.token
-            props.setid(data.id)
-            console.log(`data ${JSON.stringify(data.id)}`);
+            props.setToken(data.token);
+            console.log(`data ${JSON.stringify(data.token)}`);
         }
     };
 
