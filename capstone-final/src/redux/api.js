@@ -1,4 +1,6 @@
+//React-specific entry point
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com/' }),
@@ -10,9 +12,17 @@ export const apiSlice = createApi({
         body: registerUser,
       }),
     }),
+    login: builder.mutation({
+      query: (loginUser) => ({
+        url: 'auth/login',
+        method: 'POST',
+        body: loginUser,
+      }),
+    }),
+  
   }),
 })
 
 // Export hooks for usage in functional components
 // Make sure to rename the hook according to your API slice's name
-export const { useRegisterMutation } = apiSlice; 
+export const { useRegisterMutation, useLoginMutation } = apiSlice; 

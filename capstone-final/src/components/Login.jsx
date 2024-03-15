@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLoginMutation } from "../redux/api";
 
 function Login (props) {
     const [userInfo, setUserInfo] = useState({
@@ -6,21 +7,25 @@ function Login (props) {
         password: "", 
        });
     const [errorMsg, setError] = useState(null);
+    const [login] = useLoginMutation();
     
 
     const eventHandler = async (event) => {
         event.preventDefault();
-        // const{data, error} = await register(userInfo);
-   
-        // if(error){
+        const{data, error} = await login(userInfo);
         
-        //     // setError(error.data.message)
-        //     // console.log(`error ${JSON.stringify(error.data.message)}`);
-        // } else {
-             
-        //     // props.setid(data.id)
-        //     // console.log(`data ${JSON.stringify(data.id)}`);
-        // }
+        console.log('data', data);
+        console.log('error', error);
+
+        if(error){
+        // error.data.error
+        // setError(error.data.message)
+            console.log(`error ${JSON.stringify(error.data)}`);
+        } else {
+        // data.token
+            props.setid(data.id)
+            console.log(`data ${JSON.stringify(data.id)}`);
+        }
     };
 
     const onUserInput = (e) => {
