@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import { useState } from 'react';
 import Login from './components/Login';
 import Account from './components/Account';
+import NavBar from './components/Navbar';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
         <div>
           <BrowserRouter>
+          <NavBar token={token} setToken={setToken}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register setid={setid}/>} />  
