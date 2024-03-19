@@ -31,33 +31,42 @@ function Account (props) {
 
 const {data, error, isLoading} = useAccountQuery(props.token);
 
+
+
+const loggedInUser = data?.find(user => user.username === props.username);
 console.log(props);
 console.log(props.token);
+console.log('Username from props:', props.username);
 
 // console.log('DATA from API',data);
 console.log('DATA from API', data);
-if (data) {
-  data.forEach((user, index) => {
-    console.log(`User ${index + 1}:`, user);
-  });
-}
-
+// if (data) {
+//   data.forEach((user, index) => {
+//     console.log(`User ${index + 1}:`, user);
+//   });
+// }
 
 console.log('Error from API',error);
 console.log('isLoading', isLoading);
+
 return (
             <section>
                 <h2>Account</h2>
                 {isLoading && <p>Loading...</p>}
+            {loggedInUser && (
                 <ul>
-                    <li>Username: </li>
-                    <li>Email: </li>
-                    <li>First Name: </li>
-                    <li>Last Name: </li>
-                </ul>
-            </section>
-        );
+                    <li>Username: {loggedInUser.username}</li>
+                    <li>Email: {loggedInUser.email}</li>
+                    <li>First Name: {loggedInUser.name?.firstname}</li>
+                    <li>Last Name: {loggedInUser.name?.lastname}</li>
+                    <li>City: {loggedInUser.address?.city}</li>
+                    <li>Street: {loggedInUser.address?.street}</li>
 
+                </ul>
+            )}
+            {!isLoading && !loggedInUser && <p>No user data available or not logged in.</p>}
+        </section>
+    );
 }
 
 export default Account;
