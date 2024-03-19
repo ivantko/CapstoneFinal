@@ -1,3 +1,5 @@
+import { useAccountQuery } from "../redux/api";
+
 function Account (props) {
 
 /**
@@ -26,14 +28,36 @@ function Account (props) {
     }
  * 
  */
+
+const {data, error, isLoading} = useAccountQuery(props.token);
 console.log(props);
+console.log(props.token);
+
+// console.log('DATA from API',data);
+console.log('DATA from API', data);
+if (data) {
+  data.forEach((user, index) => {
+    console.log(`User ${index + 1}:`, user);
+  });
+}
 
 
-    return (
-        <section>
-            <h2>Account</h2>
-        </section>
-    );
+console.log('Error from API',error);
+console.log('isLoading', isLoading);
+return (
+            <section>
+                <h2>Account</h2>
+                {isLoading && <p>Loading...</p>}
+                <ul>
+                    <li>Username: </li>
+                    <li>Email: </li>
+                    <li>First Name: </li>
+                    <li>Last Name: </li>
+                </ul>
+            </section>
+        );
+
 }
 
 export default Account;
+

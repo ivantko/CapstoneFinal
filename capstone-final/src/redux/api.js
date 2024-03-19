@@ -19,10 +19,17 @@ export const apiSlice = createApi({
         body: loginUser,
       }),
     }),
-  
+    account: builder.query({
+      query:(token) => ({
+        url: 'users',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
   }),
 })
 
 // Export hooks for usage in functional components
 // Make sure to rename the hook according to your API slice's name
-export const { useRegisterMutation, useLoginMutation } = apiSlice; 
+export const { useRegisterMutation, useLoginMutation, useAccountQuery } = apiSlice; 
