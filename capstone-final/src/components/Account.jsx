@@ -38,15 +38,29 @@ console.log(props);
 console.log(props.token);
 console.log('Username from props:', props.username);
 
-// console.log('DATA from API',data);
 console.log('DATA from API', data);
 // if (data) {
 //   data.forEach((user, index) => {
 //     console.log(`User ${index + 1}:`, user);
 //   });
 // }
-
 console.log('Error from API',error);
+
+
+// if (error || !loggedInUser) {
+//     return <p>Something went wrong!</p>;
+// }
+
+if (isLoading) {
+    return <p>Loading...</p>;
+}
+
+
+if (error || !loggedInUser) {
+    return <p>Something went wrong!</p>;
+}
+
+
 console.log('isLoading', isLoading);
 
 return (
