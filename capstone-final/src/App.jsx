@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Login from './components/Login';
 import Account from './components/Account';
 import NavBar from './components/Navbar';
+import Services from './components/Services';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/register" element={<Register setid={setid}/>} />  
             <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername}/>} />
             <Route path="/account" element={<Account token={token} username={username}/>} />
+            <Route path="/services" element={<Services />} />          
           </Routes>
           </BrowserRouter>
         </div>
