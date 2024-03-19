@@ -30,12 +30,14 @@ function Login (props) {
         const{data, error} = await login(userInfo);
         
         if(error){
-        // error.data.error
+        // handle the error
         setError(error.data)
             // console.log(`error`, error);
         } else {
-        // data.token
+        // Save the token and username after successful login
             props.setToken(data.token);
+        // Replace 'userInfo.username' with the actual response username if different
+            props.setUsername(userInfo.username);
           //TODO: change to plant list route later
             navigate("/account");
         }

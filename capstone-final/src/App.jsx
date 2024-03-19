@@ -13,6 +13,7 @@ import NavBar from './components/Navbar';
 function App() {
   const [id, setid] = useState(null);
   const [token, setToken] = useState(null);
+  const [username, setUsername] = useState(null);
   
   // console.log('id', id)
   console.log('token', token)
@@ -25,7 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register setid={setid}/>} />  
-            <Route path="/login" element={<Login setToken={setToken} />} />
+            <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername}/>} />
             <Route path="/account" element={<Account token={token}/>} />
           </Routes>
           </BrowserRouter>

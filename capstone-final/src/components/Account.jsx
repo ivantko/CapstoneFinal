@@ -30,6 +30,7 @@ function Account (props) {
  */
 
 const {data, error, isLoading} = useAccountQuery(props.token);
+
 console.log(props);
 console.log(props.token);
 
