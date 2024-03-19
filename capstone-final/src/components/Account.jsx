@@ -26,6 +26,7 @@ function Account (props) {
     }
  * 
  */
+console.log(props);
 
 
     return (

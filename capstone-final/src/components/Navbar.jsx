@@ -1,8 +1,8 @@
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function NavBar(props){
     const navigate = useNavigate();
-    
+
     const logoutUser = () => {
         props.setToken(null);
         navigate("/");

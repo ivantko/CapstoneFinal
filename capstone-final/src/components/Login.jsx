@@ -1,5 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+//api
 import { useLoginMutation } from "../redux/api";
+
+
+// if(props.token){
+//     return <nav>
+//     <NavLink to="/">Home</NavLink>
+//     <NavLink to="/account">Account</NavLink>
+//     <a onClick={login}>Logout</a>
+//     </nav>
+// }
+
+
+
 
 function Login (props) {
     const [userInfo, setUserInfo] = useState({
@@ -8,7 +22,7 @@ function Login (props) {
        });
     const [errorMsg, setError] = useState(null);
     const [login] = useLoginMutation();
-    
+    const navigate = useNavigate();
   
 
     const eventHandler = async (event) => {
@@ -18,11 +32,12 @@ function Login (props) {
         if(error){
         // error.data.error
         setError(error.data)
-            console.log(`error`, error);
+            // console.log(`error`, error);
         } else {
         // data.token
             props.setToken(data.token);
-            console.log(`data ${JSON.stringify(data.token)}`);
+          //TODO: change to plant list route later
+            navigate("/account");
         }
     };
 
