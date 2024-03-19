@@ -3,7 +3,7 @@ import { useAccountQuery } from "../redux/api";
 function Account (props) {
 
 /**
- * user body from API:
+ user body from API:
  * {
         "address": {
             "geolocation": {
@@ -26,7 +26,6 @@ function Account (props) {
         "phone": "1-570-236-7033",
         "__v": 0
     }
- * 
  */
 
 const {data, error, isLoading} = useAccountQuery(props.token);
@@ -34,17 +33,17 @@ const {data, error, isLoading} = useAccountQuery(props.token);
 
 
 const loggedInUser = data?.find(user => user.username === props.username);
-console.log(props);
-console.log(props.token);
+// console.log(props);
+// console.log(props.token);
 console.log('Username from props:', props.username);
 
-console.log('DATA from API', data);
+// console.log('DATA from API', data);
 // if (data) {
 //   data.forEach((user, index) => {
 //     console.log(`User ${index + 1}:`, user);
 //   });
 // }
-console.log('Error from API',error);
+// console.log('Error from API',error);
 
 
 // if (error || !loggedInUser) {
