@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -7,4 +7,58 @@
 
 img {
   width: 600px;
+} */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #0e1a40; /* Dark blue background */
+  color: #f4f4f9; /* Lighter text for contrast */
+}
+
+img {
+  width: 600px;
+  border: 5px solid #3b5998; /* Blue border for images */
+}
+
+button {
+  background-color: #3b5998; /* Blue background for buttons */
+  color: #ffffff; /* White text */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a3f5f; /* Darker blue on hover */
+}
+
+.card {
+  background-color: #1a2e50; /* Dark blue background for cards */
+  color: #f4f4f9; /* Lighter text for contrast */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px; /* Rounded corners for cards */
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2a3f5f; /* Dark blue for navigation */
+}
+
+nav a {
+  color: #f4f4f9; /* Light text for links */
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #3b5998; /* Lighter blue on hover */
+  color: black;
 }
