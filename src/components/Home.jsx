@@ -1,4 +1,4 @@
-import home_cyber from "../assets/bulwarkhome.png";
+import home_cyber from "../assets/army.webp";
 
 function Home() {
     return (
