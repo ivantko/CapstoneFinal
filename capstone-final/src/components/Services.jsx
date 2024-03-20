@@ -1,4 +1,5 @@
-// import { isPlainObject } from "@reduxjs/toolkit";
+import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useServicesQuery } from "../redux/api";
 
 function Services({ token }) {
@@ -28,6 +29,7 @@ function Services({ token }) {
     //       "count": 120
     //     }
 
+    const details = () => {}
 
     return (
     <div>
@@ -40,6 +42,7 @@ function Services({ token }) {
             <p>Price: ${service.price}</p>
             <p>Rating: {service.rating.rate} ({service.rating.count} Reviews)</p>
             <p>Description: {service.description}</p>
+            <Link to={`/servicedetails/${service.id}`}>See More Details</Link>
             </div>
         );
     })}
