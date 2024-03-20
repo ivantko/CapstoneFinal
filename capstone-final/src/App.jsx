@@ -29,7 +29,7 @@ function App() {
             <Route path="/register" element={<Register setid={setid}/>} />  
             <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername}/>} />
             <Route path="/account" element={<Account token={token} username={username}/>} />
-            <Route path="/services" element={<Services />} />          
+            <Route path="/services" element={<Services token={token} />} />          
           </Routes>
           </BrowserRouter>
         </div>
