@@ -10,7 +10,7 @@ To get this project up and running on your local machine, follow these steps:
 ### Installation
 
 1. Clone the repository: 
-   $ git clone https://github.com/yourusername/your-repo-name.git
+   $ git clone https://github.com/ivantko/CapstoneFinal.git
 2. Navigate to the project directory:
    $ cd your-repo-name
 3. Install dependencies:
