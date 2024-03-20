@@ -9,7 +9,7 @@ function Home() {
                 while you have to defend against all.  
             </p>
             <p>With specialized services tailored to business needs, 
-               BinaryBulwark solves your information security problems.
+               Binary Bulwark solves your information security problems.
             </p>
          </div>
     );
