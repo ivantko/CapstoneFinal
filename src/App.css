@@ -1,14 +1,3 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-img {
-  width: 600px;
-} */
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -35,6 +24,8 @@ button {
 
 button:hover {
   background-color: #2a3f5f; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly increase the button size */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
 }
 
 .card {
