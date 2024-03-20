@@ -29,7 +29,7 @@ function Services({ token }) {
     //       "count": 120
     //     }
 
-    const details = () => {}
+    // const details = () => {}
 
     return (
     <div>
@@ -41,7 +41,7 @@ function Services({ token }) {
             <img src={service.image} />
             <p>Price: ${service.price}</p>
             <p>Rating: {service.rating.rate} ({service.rating.count} Reviews)</p>
-            <p>Description: {service.description}</p>
+            {/* <p>Description: {service.description}</p> */}
             <Link to={`/servicedetails/${service.id}`}>See More Details</Link>
             </div>
         );
