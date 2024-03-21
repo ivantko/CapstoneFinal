@@ -1,15 +1,25 @@
 #root {
-  max-width: 1280px;
+  width: 100vw; /* Use the full viewport width */
+  min-height: 100vh; /* Use the minimum height of the full viewport height */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #0e1a40; /* Dark blue background */
-  color: #f4f4f9; /* Lighter text for contrast */
+  background-color: #f0f0f0; /* Light grey background */
+  color: #333; /* Darker text for contrast */
 }
 
 img {
-  width: 600px;
+  width: 100%;
   border: 5px solid #3b5998; /* Blue border for images */
+}
+
+.banner {
+  width: 120vw; /* Making the image wider than 100% of the viewport width */
+  max-width: none; /* Override any max-width */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto; /* Maintain aspect ratio */
 }
 
 button {
@@ -38,18 +48,49 @@ button:hover {
 
 nav {
   display: flex;
-  justify-content: space-around;
-  background-color: #2a3f5f; /* Dark blue for navigation */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: transparent; /* Remove solid bar */
 }
 
-nav a {
-  color: #f4f4f9; /* Light text for links */
-  padding: 14px 20px;
-  text-decoration: none;
-  text-align: center;
+.nav-group {
+  display: flex;
 }
 
-nav a:hover {
-  background-color: #3b5998; /* Lighter blue on hover */
-  color: black;
+.nav-group.left a,
+.nav-group.right a {
+  margin: 0 10px; /* Adjust spacing between links */
+}
+
+.nav-title {
+  font-family: 'MedievalSharp', cursive; /* Example font, ensure the font is included in your project */
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.image-tape {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.image-container {
+  display: inline-block;
+  animation: scroll-images 40s linear infinite;
+}
+
+@keyframes scroll-images {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.image-container img {
+  display: inline-block;
+  width: 200px; /* Adjust as needed */
+  height: auto;
+  margin-right: 0; /* Remove space between images */
 }

@@ -6,7 +6,7 @@ function AddService() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("here")
+        console.log("here");
     };
 
     return (
