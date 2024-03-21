@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function AddService() {
-    const [] = useState()
+    const [form, setForm] = useState()
     const [error, setError] = useState(null);
 
     const handleSubmit = async (event) => {

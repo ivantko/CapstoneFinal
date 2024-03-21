@@ -14,12 +14,13 @@ img {
 }
 
 .banner {
-  width: 120vw; /* Making the image wider than 100% of the viewport width */
+  width: 100vw; /* Adjusted to use 100% of the viewport width */
   max-width: none; /* Override any max-width */
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   height: auto; /* Maintain aspect ratio */
+  overflow: hidden; /* Prevent horizontal overflow */
 }
 
 button {
@@ -50,6 +51,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Orbitron', sans-serif;
   padding: 0 20px;
   background-color: transparent; /* Remove solid bar */
 }
@@ -72,6 +74,8 @@ nav {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
+  width: 100vw; /* Ensure it doesn't extend beyond the viewport width */
+  max-width: 100%; /* Prevent it from causing overflow */
 }
 
 .image-container {
@@ -101,4 +105,8 @@ nav {
   max-width: 100%; /* Ensure it doesn't exceed the container's width */
   height: auto; /* Maintain aspect ratio */
   max-height: 400px; /* Example: limit the height to make images smaller, adjust as needed */
+}
+
+* {
+  box-sizing: border-box;
 }
