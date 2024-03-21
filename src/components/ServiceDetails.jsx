@@ -17,7 +17,7 @@ function ServiceDetails ({}) {
 
     return (
         <section>
-            <h2>Service Details</h2>
+            <h2>Details</h2>
             <div key={data?.id}> 
                 <h3>{data?.title}</h3>
                 <img src={data?.image} alt={data?.title} />
