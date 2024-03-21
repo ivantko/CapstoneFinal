@@ -10,6 +10,7 @@ import Account from './components/Account';
 import NavBar from './components/Navbar';
 import Services from './components/Services';
 import ServiceDetails from './components/ServiceDetails';
+import AddService from './components/AddService';
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
             <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername}/>} />
             <Route path="/account" element={<Account token={token} username={username}/>} />
             <Route path="/services" element={<Services token={token} />} />  
-            <Route path="/servicedetails/:productId" element={<ServiceDetails token={token} />} />         
+            <Route path="/servicedetails/:productId" element={<ServiceDetails token={token} />} />
+            <Route path="/addservice" element={<AddService token={token} />} />                  
           </Routes>
           </BrowserRouter>
         </div>
