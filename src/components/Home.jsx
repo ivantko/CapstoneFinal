@@ -1,4 +1,5 @@
 import home_cyber from "../assets/Banner1.webp";
+import cloud1 from "../assets/cloud1.webp";
 
 function Home() {
     return (
@@ -15,7 +16,7 @@ function Home() {
     return (
       <div className="image-tape">
         <div className="image-container">
-          <img src="/src/assets/cloud1.webp" alt="cloud sec" />
+          <img src={cloud1} alt="Cloud"/>
           <img src="/src/assets/consulting.webp" alt="consulting" />
           <img src="/src/assets/consulting1.webp" alt="consulting1" />
           <img src="/src/assets/forensics.webp" alt="forensics" />
