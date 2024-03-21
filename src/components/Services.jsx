@@ -38,7 +38,7 @@ function Services({ token }) {
         return (
         <div key={service.id}>
             <h2>{service.title}</h2>
-            <img src={service.image} />
+            <img src={service.image} className="services-img"/>
             <p>Price: ${service.price}</p>
             <p>Rating: {service.rating.rate} ({service.rating.count} Reviews)</p>
             {/* <p>Description: {service.description}</p> */}
