@@ -64,8 +64,8 @@ nav {
 }
 
 .nav-title {
-  font-family: 'MedievalSharp', cursive; /* Example font, ensure the font is included in your project */
-  font-size: 24px; /* Adjust size as needed */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px; 
 }
 
 .image-tape {
@@ -90,9 +90,10 @@ nav {
 
 .image-container img {
   display: inline-block;
-  width: 200px; /* Adjust as needed */
+  width: 300px; /* Increase width by 50% */
   height: auto;
   margin-right: 20px; /* Add space between images */
+  background-color: transparent; /* Remove any filler color, if necessary */
 }
 
 .services-img {
