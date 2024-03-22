@@ -12,7 +12,7 @@ function Home() {
     return (
         <div>
             <img src={home_cyber} alt="Cyber Army" />
-            <h3>Digital Bulwarks, Real Security
+            <h3 className="slogan"> Digital Bulwarks, Real Security
             </h3>
             <ImageTape /> 
          </div>
