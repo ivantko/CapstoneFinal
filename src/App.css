@@ -71,13 +71,13 @@ nav {
 }
 
 
-.image-tape {
+/* .image-tape {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   width: 100vw; /* Ensure it doesn't extend beyond the viewport width */
   max-width: 100%; /* Prevent it from causing overflow */
-}
+} */
 
 .image-container {
   display: inline-block;

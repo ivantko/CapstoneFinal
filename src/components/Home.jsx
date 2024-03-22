@@ -25,13 +25,13 @@ function Home() {
     return (
       <div className="image-tape">
         <div className="image-container">
-          <img src={cloud1} alt="Cloud"/>
+          {/* <img src={cloud1} alt="Cloud"/>
           <img src={consulting} alt="consulting" />
           <img src={consulting1} alt="consulting1" />
           <img src={forensics} alt="forensics" />
           <img src={pentest} alt="pentest" />
           <img src={pentest2} alt="pentest2" />
-          <img src={assessment} alt="assessment" />
+          <img src={assessment} alt="assessment" /> */}
         </div>
       </div>
     );
