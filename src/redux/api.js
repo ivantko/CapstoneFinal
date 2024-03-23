@@ -43,6 +43,7 @@ export const apiSlice = createApi({
     addService: builder.mutation({
       query: ( token, body ) => ({
         url: 'products',
+        method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
         },

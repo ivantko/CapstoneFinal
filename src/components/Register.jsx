@@ -15,7 +15,7 @@ function Register (props) {
     const [errorMsg, setError] = useState(null);
     const [register] = useRegisterMutation();
 
-    console.log(props);
+    // console.log(props);
 
     const eventHandler = async (event) => {
         event.preventDefault();
