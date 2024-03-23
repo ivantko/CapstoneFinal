@@ -4,6 +4,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com/' }),
+  tagTypes: ['Service'],
+  // The "endpoints" represent operations and requests for this server
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (registerUser) => ({
@@ -33,7 +35,8 @@ export const apiSlice = createApi({
         headers: {
           authorization: `Bearer ${token}`,
         },
-      }),
+    }),
+    providesTags: ['Service']
     }),
     serviceDetails: builder.query({
       query: (productId) => ({
@@ -48,8 +51,9 @@ export const apiSlice = createApi({
           authorization: `Bearer ${token}`,
         },
         body,
-      })
-    })
+      }),
+      invalidatesTags: ['Service']
+    }),
   }),  
 })
 
