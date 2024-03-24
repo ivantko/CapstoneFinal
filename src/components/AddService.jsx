@@ -20,7 +20,7 @@ function AddService(props) {
                 title: "", price: "", description: "", image_url:""
             });
          }    
-};
+    };
 
     const handleChange = ({target}) => {
         setError(null);

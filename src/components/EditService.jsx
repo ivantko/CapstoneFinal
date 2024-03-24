@@ -1,25 +1,51 @@
 //api
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useEditServiceMutation, useServiceDetailsQuery } from "../redux/api";
 import { useParams } from "react-router-dom";
 
 function EditService({token}) {
 let {productId} = useParams();
 
-const { data, error, isLoading } = 
-useServiceDetailsQuery(productId);
 
 
 const [editService] = useEditServiceMutation();
 const [form, setForm] = useState({
     title: "", price: "", description: "", image_url:""
 });
+const [errorMsg, setError] = useState(null);
+
+const { data, error, isLoading } = 
+useServiceDetailsQuery(productId);
+
+useEffect(() => {
+    if (data) {
+        setForm({
+            title: data.title || "",
+            price: data.price || "",
+            description: data.description || "",
+            image_url: data.image || ""
+        });
+    }
+}, [data]);
+
 
 const handleChange = ({ target }) => {
+    setError(null);
     setForm({ ...form, [target.name]: target.value });
 };
 
-const handleSubmit = () => {};
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { data, error } = await editService({ productId, token, body: form });
+
+    if (error) {
+        setError('Something went wrong! Please try again');
+    } else {
+        setForm({
+            title: "", price: "", description: "", image_url: ""
+        });
+    }
+};
 
 if (isLoading){
     return <p>Loading...</p>
@@ -28,6 +54,7 @@ if (isLoading){
 if(error){
     return <p>Something went wrong!</p>;
 }
+
 
 if (data) {
     console.log(data);
