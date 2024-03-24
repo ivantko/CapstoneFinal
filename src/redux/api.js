@@ -54,9 +54,19 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ['Service']
     }),
+    editService: builder.mutation({
+      query: ({productId, token, body}) => ({
+        url: `products/${productId}`,
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+    }),
   }),  
 })
 
 // Export hooks for usage in functional components
 // Make sure to rename the hook according to your API slice's name
-export const { useRegisterMutation, useLoginMutation, useAccountQuery, useServicesQuery, useServiceDetailsQuery, useAddServiceMutation } = apiSlice; 
+export const { useRegisterMutation, useLoginMutation, useAccountQuery, useServicesQuery, useServiceDetailsQuery, useAddServiceMutation, useEditServiceMutation } = apiSlice; 

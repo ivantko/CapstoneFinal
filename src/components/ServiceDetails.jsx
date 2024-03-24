@@ -10,6 +10,7 @@ function ServiceDetails ({}) {
         navigate(`/editservice/${productId}`);
     }
 
+
     if (isLoading){
         return <p>Loading...</p>
     }
@@ -17,8 +18,6 @@ function ServiceDetails ({}) {
     if(error){
         return <p>Something went wrong!</p>
     }
-
-    // console.log('data', data);
 
     return (
         <section>

@@ -11,6 +11,7 @@ import NavBar from './components/Navbar';
 import Services from './components/Services';
 import ServiceDetails from './components/ServiceDetails';
 import AddService from './components/AddService';
+import EditService from './components/EditService';
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
             <Route path="/account" element={<Account token={token} username={username}/>} />
             <Route path="/services" element={<Services token={token} />} />  
             <Route path="/servicedetails/:productId" element={<ServiceDetails token={token} />} />
-            <Route path="/addservice" element={<AddService token={token} />} />                  
+            <Route path="/addservice" element={<AddService token={token} />}/>    
+            <Route path="/editservice/:productId" element={<EditService token={token} />} />             
           </Routes>
           </BrowserRouter>
         </div>
