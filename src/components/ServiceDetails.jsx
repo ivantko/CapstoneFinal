@@ -1,9 +1,14 @@
 import { useServiceDetailsQuery } from "../redux/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function ServiceDetails ({}) {
     const {productId} = useParams();
     const {data, error, isLoading} = useServiceDetailsQuery(productId);
+    const navigate = useNavigate();
+
+    const goToEditForm = () => {
+        navigate(`/editservice/${productId}`);
+    }
 
     if (isLoading){
         return <p>Loading...</p>
@@ -13,7 +18,7 @@ function ServiceDetails ({}) {
         return <p>Something went wrong!</p>
     }
 
-    console.log('data', data);
+    // console.log('data', data);
 
     return (
         <section>
@@ -25,9 +30,8 @@ function ServiceDetails ({}) {
                 <p>Rating: {data?.rating.rate} ({data?.rating.count} Reviews)</p>
                 <p>Description: {data?.description}</p>
                 <p>Category: {data?.category}</p>
-
+                <button onClick={goToEditForm}> Edit Service</button>
             </div>
-
         </section>
     );
 }
