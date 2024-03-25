@@ -8,7 +8,7 @@ function Services({ token, cart, setCart }) {
     const {data, error, isLoading} = useServicesQuery(token);
     const [sortKey, setSortKey] = useState('');
     const [filterCategory, setFilterCategory] = useState('');
-    const [minPrice, setMinPrice] = useState(0);
+    const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState(Infinity);
 
     if (isLoading){
@@ -29,7 +29,7 @@ function Services({ token, cart, setCart }) {
     }
 
     // Filter by price range
-    filteredData = filteredData.filter(item => item.price >= minPrice && item.price <= maxPrice);
+    filteredData = filteredData.filter(item => item.price >= (minPrice ? Number(minPrice) : 0) && item.price <= maxPrice);
 
     // Sort by key
     if (sortKey === 'name') {
@@ -62,7 +62,7 @@ function Services({ token, cart, setCart }) {
             <option key={category} value={category}>{category}</option>
         ))}
     </select>
-    <input type="number" value={minPrice} onChange={(e) => setMinPrice(Number(e.target.value))} placeholder="Min price" />
+    <input type="number" value={minPrice > 0 ? minPrice : ''} onChange={(e) => setMinPrice(Number(e.target.value))} placeholder="Min price" />
     <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} placeholder="Max price" />
     {filteredData.map((service) => {
         return (
