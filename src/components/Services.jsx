@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 // import { Link from "react-router-dom";
 import { useServicesQuery } from "../redux/api";
+import React, { useState } from 'react';
 
 function Services({ token, cart, setCart }) {
     
     const {data, error, isLoading} = useServicesQuery(token);
+    const [sortKey, setSortKey] = useState('');
+    const [filterCategory, setFilterCategory] = useState('');
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(Infinity);
 
     if (isLoading){
         return <p>Loading...</p>
@@ -16,18 +21,22 @@ function Services({ token, cart, setCart }) {
 
     console.log("DATA", data)
 
-    //Product object example within data array:
-    // {
-    //     "id": 1,
-    //     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    //     "price": 109.95,
-    //     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    //     "category": "men's clothing",
-    //     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    //     "rating": {
-    //       "rate": 3.9,
-    //       "count": 120
-    //     }
+    let filteredData = data;
+
+    // Filter by category
+    if (filterCategory) {
+        filteredData = filteredData.filter(item => item.category === filterCategory);
+    }
+
+    // Filter by price range
+    filteredData = filteredData.filter(item => item.price >= minPrice && item.price <= maxPrice);
+
+    // Sort by key
+    if (sortKey === 'name') {
+        filteredData.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortKey === 'price') {
+        filteredData.sort((a, b) => a.price - b.price);
+    }
 
     const addToCart = (service) => {
         // Assuming each service object doesn't initially have a 'quantity' key
@@ -41,8 +50,21 @@ function Services({ token, cart, setCart }) {
 
     return (
     <div>
-    <h2>Services</h2> 
-    {data.map((service) => {
+    <h2>Services</h2>
+    <select value={sortKey} onChange={(e) => setSortKey(e.target.value)}>
+        <option value="">Select sort type</option>
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+    </select>
+    <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
+        <option value="">Select category</option>
+        {Array.from(new Set(data.map(item => item.category))).map(category => (
+            <option key={category} value={category}>{category}</option>
+        ))}
+    </select>
+    <input type="number" value={minPrice} onChange={(e) => setMinPrice(Number(e.target.value))} placeholder="Min price" />
+    <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} placeholder="Max price" />
+    {filteredData.map((service) => {
         return (
         <div key={service.id}>
             <h2>{service.title}</h2>
