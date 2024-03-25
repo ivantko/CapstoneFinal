@@ -26,6 +26,13 @@ function Cart({ cart, setCart }) {
     setCart(newCart);
   };
 
+  const checkout = () => {
+    // In lieu or real backend
+    console.log("Checking out", cart);
+    setCart([]); // Clear the cart
+    alert("Thank you for your purchase!");
+  };
+
   if (!cart.length) return <div>Your cart is empty</div>;
 
   return (
@@ -39,7 +46,7 @@ function Cart({ cart, setCart }) {
           <button onClick={() => removeFromCart(item.id)}>Remove</button>
         </div>
       ))}
-      {/* Implement checkout button and other functionalities as needed */}
+      <button onClick={checkout}>Checkout</button>
     </div>
   );
 }
