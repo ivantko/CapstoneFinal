@@ -1,13 +1,11 @@
 //api
 import { useState, useEffect } from "react";
 import { useEditServiceMutation, useServiceDetailsQuery } from "../redux/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditService({token}) {
 let {productId} = useParams();
-
-
-
+const navigate = useNavigate();
 const [editService] = useEditServiceMutation();
 const [form, setForm] = useState({
     title: "", price: "", description: "", image_url:""
@@ -41,9 +39,7 @@ const handleSubmit = async (event) => {
     if (error) {
         setError('Something went wrong! Please try again');
     } else {
-        setForm({
-            title: "", price: "", description: "", image_url: ""
-        });
+        navigate(`/servicedetails/${productId}`)
     }
 };
 
@@ -55,16 +51,10 @@ if(error){
     return <p>Something went wrong!</p>;
 }
 
-
-if (data) {
-    console.log(data);
-    // setForm(data.service);
-}
-
-
     return (
         <section>
             <h2>Edit Service</h2>
+            { errorMsg && <p>{errorMsg}</p> }
             <form>
                 <label htmlFor="title">Name</label>
                 <input value={form.title} name="title" onChange={handleChange} />

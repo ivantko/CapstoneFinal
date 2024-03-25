@@ -42,6 +42,7 @@ export const apiSlice = createApi({
       query: (productId) => ({
         url: `products/${productId}`,
       }),
+      providesTags: ['Service']
     }),
     addService: builder.mutation({
       query: ( token, body ) => ({
@@ -52,7 +53,7 @@ export const apiSlice = createApi({
         },
         body,
       }),
-      invalidatesTags: ['Service']
+      invalidatesTags: ['Service'],
     }),
     editService: builder.mutation({
       query: ({productId, token, body}) => ({
@@ -63,6 +64,7 @@ export const apiSlice = createApi({
         },
         body,
       }),
+      invalidatesTags: ['Service'],
     }),
   }),  
 })

@@ -27,15 +27,6 @@ function AddService(props) {
         setForm({...form, [target.name]: target.value});
     };
 
-    // const handleChange = ({ target }) => {
-    //     if (target.name === "price" && isNaN(target.value)) {
-    //         setError("Price must be a number.");
-    //     } else {
-    //         setError(null); // Clear error message when input is valid
-    //         setForm({ ...form, [target.name]: target.value });
-    //     }
-    // };
-
     return (
         <section>
             <h2>Add Service</h2>
