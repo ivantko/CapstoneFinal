@@ -15,6 +15,7 @@ function NavBar(props){
             <NavLink to="/services">Services</NavLink>
             <NavLink to="/account">Account</NavLink>
             <NavLink to="/addservice"> Add Service</NavLink>
+            <NavLink to="/cart">Cart</NavLink> 
         </div>
         <h2 className="nav-title">Binary Bulwark</h2>
         <div className="nav-group right">

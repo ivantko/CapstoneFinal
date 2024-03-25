@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
+// import { Link from "react-router-dom";
 import { useServicesQuery } from "../redux/api";
 
-function Services({ token }) {
+function Services({ token, cart, setCart }) {
     
     const {data, error, isLoading} = useServicesQuery(token);
 
@@ -29,7 +29,15 @@ function Services({ token }) {
     //       "count": 120
     //     }
 
-    // const details = () => {}
+    const addToCart = (service) => {
+        // Assuming each service object doesn't initially have a 'quantity' key
+        const serviceWithQuantity = { ...service, quantity: 1 };
+        setCart(currentCart => {
+            const updatedCart = [...currentCart, serviceWithQuantity];
+            console.log("Updated Cart:", updatedCart); // Add this line
+            return updatedCart;
+        });
+    };
 
     return (
     <div>
@@ -43,6 +51,7 @@ function Services({ token }) {
             <p>Rating: {service.rating.rate} ({service.rating.count} Reviews)</p>
             {/* <p>Description: {service.description}</p> */}
             <Link to={`/servicedetails/${service.id}`}>See More Details</Link>
+            <button onClick={() => addToCart(service)}>Add to Cart</button>
             </div>
         );
     })}

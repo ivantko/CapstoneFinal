@@ -29,7 +29,7 @@ export const apiSlice = createApi({
         },
       }),
     }),
-    Services: builder.query({
+    services: builder.query({
       query: (token) => ({
         url: 'products',
         headers: {
@@ -45,7 +45,7 @@ export const apiSlice = createApi({
       providesTags: ['Service']
     }),
     addService: builder.mutation({
-      query: ( token, body ) => ({
+      query: ({ token, body }) => ({
         url: 'products',
         method: "POST",
         headers: {
@@ -66,9 +66,19 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ['Service'],
     }),
+    getAllCarts: builder.query({
+      query: () => 'carts',
+    }),
+    getSingleCart: builder.query({
+      query: (cartId) => `carts/${cartId}`,
+    }),
+    getCartsByUser: builder.query({
+      query: (userId) => `carts/user/${userId}`,
+    }),
+    // Additional endpoints for limit, sort, and date range can be added similarly
   }),  
 })
 
 // Export hooks for usage in functional components
 // Make sure to rename the hook according to your API slice's name
-export const { useRegisterMutation, useLoginMutation, useAccountQuery, useServicesQuery, useServiceDetailsQuery, useAddServiceMutation, useEditServiceMutation } = apiSlice; 
+export const { useRegisterMutation, useLoginMutation, useAccountQuery, useServicesQuery, useServiceDetailsQuery, useAddServiceMutation, useEditServiceMutation, useGetAllCartsQuery, useGetSingleCartQuery, useGetCartsByUserQuery } = apiSlice; 
