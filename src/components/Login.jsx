@@ -4,17 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/api";
 
 
-// if(props.token){
-//     return <nav>
-//     <NavLink to="/">Home</NavLink>
-//     <NavLink to="/account">Account</NavLink>
-//     <a onClick={login}>Logout</a>
-//     </nav>
-// }
-
-
-
-
 function Login (props) {
     const [userInfo, setUserInfo] = useState({
         username: "", 
@@ -38,7 +27,7 @@ function Login (props) {
             props.setToken(data.token);
         // Replace 'userInfo.username' with the actual response username if different
             props.setUsername(userInfo.username);
-          //TODO: change to plant list route later
+          //TODO: change to service list route later
             navigate("/account");
         }
     };

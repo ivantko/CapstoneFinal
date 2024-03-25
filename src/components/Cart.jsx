@@ -27,10 +27,19 @@ function Cart({ cart, setCart }) {
   };
 
   const checkout = () => {
-    // In lieu or real backend
+    let message = "Thank you for your purchase!\n\nItems Purchased:\n";
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        totalPrice += item.price * item.quantity;
+        message += `${item.title} - Quantity: ${item.quantity}\n`;
+    });
+
+    message += `\nTotal Price: $${totalPrice.toFixed(2)}`;
+
     console.log("Checking out", cart);
     setCart([]); // Clear the cart
-    alert("Thank you for your purchase!");
+    alert(message);
   };
 
   if (!cart.length) return <div>Your cart is empty</div>;
